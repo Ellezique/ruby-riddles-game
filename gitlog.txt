@@ -1,3 +1,33 @@
+commit 233fc0579749a36e59b386a59bdb044c59d49ea9
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 12 21:04:31 2020 +1000
+
+    Add gems and create rainbow game name
+
+commit 5b921e00430dc5338580bfe006bc1884b4b3dbc5
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 12 20:16:58 2020 +1000
+
+    Attribute reader and require relative added
+
+commit e6ade1abb2023782f935653b3de444771cb422b1
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 11 18:42:22 2020 +1000
+
+    Create riddle one and two
+
+commit d1f0014dfd65834e422e9354e1422b249dbae1c9
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 11 15:36:02 2020 +1000
+
+    Create Riddle class with initialized, solved and not_solved methods
+
+commit a515ce9ffddd28e9da5140d6b485fb56c253b00f
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 10 19:00:51 2020 +1000
+
+    Create gitlog and index.rb file
+
 commit f0b87a1b2c169bd3f3a75de3a453acc1567e9de0
 Author: Ellezique <gizellevanzyl@gmail.com>
 Date:   Thu Dec 10 16:03:02 2020 +1000

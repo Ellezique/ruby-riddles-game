@@ -16,9 +16,14 @@ class Riddle #blueprint for one riddle
     def solved #action method in class
         puts "YAYY!! the answer is #{@answer}"
         @riddle_points += 1
+        @attempts_this_riddle += 1
     end
     def not_solved #action method in class
         puts "Uh oh! You did not solve the #{riddle_name}."
+        @attempts_this_riddle += 1
+    end
+    def print_ladder_format
+        puts "#{@riddle_name} #{@attempts_this_riddle} #{@riddle_points}"
     end
     def to_s #deleting print_progress and replacing to_s just allows me to print this in index saying e.g puts riddle_1
         attempts_info = "You have have attempted this riddle #{@attempts_this_riddle} times.\n".yellow

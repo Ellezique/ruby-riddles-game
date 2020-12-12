@@ -1,3 +1,6 @@
+#4 Dec 2020 video
+#We should only be calling methods etc here. 
+
 # A class is a blueprint where we can create a supervariable containing info and methods.
 #Riddle has attributes and actions: name, riddle, tips, answer, solve/not, number of games, scoring
 #info about the riddle, and what action riddle does.
@@ -46,29 +49,34 @@ second_riddle = Riddle.new(
     #puts first_riddle.print_progress #must use . to access info from riddles.rb
     #first_riddle.solved #If riddle solved.
     #puts first_riddle.print_progress #1 point up
-puts first_riddle #works here if teh def to_s (prints strings and not memory location) is used in riddles.rb.eg 3 Dec at about 45min
 
-#attr_reader 
-puts first_riddle.riddle_name #I am allowed to access the riddle name
+
 
 #puts EasyRiddle.totalMembers accesses class method with class variable.@@
+#array_riddles = []
 
-array_riddles = []
 
-colorizer = Lolize::Colorizer.new
-colorizer.write "
+#MENU
+$prompt = TTY::Prompt.new #$Global Variable
+def select_option 
+    return $prompt.select("Choose your option.", ["Play", "Show progress info", "Score", "Exit"])
+end
 
-──────────────────────────────────────────────────────────────────────────────────────────────────────────
-─████████████████───██████████─████████████───████████████───██████─────────██████████████─██████████████─
-─██░░░░░░░░░░░░██───██░░░░░░██─██░░░░░░░░████─██░░░░░░░░████─██░░██─────────██░░░░░░░░░░██─██░░░░░░░░░░██─
-─██░░████████░░██───████░░████─██░░████░░░░██─██░░████░░░░██─██░░██─────────██░░██████████─██░░██████████─
-─██░░██────██░░██─────██░░██───██░░██──██░░██─██░░██──██░░██─██░░██─────────██░░██─────────██░░██─────────
-─██░░████████░░██─────██░░██───██░░██──██░░██─██░░██──██░░██─██░░██─────────██░░██████████─██░░██████████─
-─██░░░░░░░░░░░░██─────██░░██───██░░██──██░░██─██░░██──██░░██─██░░██─────────██░░░░░░░░░░██─██░░░░░░░░░░██─
-─██░░██████░░████─────██░░██───██░░██──██░░██─██░░██──██░░██─██░░██─────────██░░██████████─██████████░░██─
-─██░░██──██░░██───────██░░██───██░░██──██░░██─██░░██──██░░██─██░░██─────────██░░██─────────────────██░░██─
-─██░░██──██░░██████─████░░████─██░░████░░░░██─██░░████░░░░██─██░░██████████─██░░██████████─██████████░░██─
-─██░░██──██░░░░░░██─██░░░░░░██─██░░░░░░░░████─██░░░░░░░░████─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─
-─██████──██████████─██████████─████████████───████████████───██████████████─██████████████─██████████████─
-──────────────────────────────────────────────────────────────────────────────────────────────────────────
-"
+
+answer = ""
+while answer != "Exit"
+    answer = select_option
+    case answer
+        when "Play"
+            puts "Play"
+            puts first_riddle #works here if teh def to_s (prints strings and not memory location) is used in riddles.rb.eg 3 Dec at about 45min
+        when "Show progress info"
+            puts "Show progress info"
+            #attr_reader 
+            puts first_riddle.riddle_name #I am allowed to access the riddle name
+        when "Score"
+           puts "Score"
+        else 
+            puts "Exit"
+        end
+    end
