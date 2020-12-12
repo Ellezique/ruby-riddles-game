@@ -21,8 +21,8 @@ class Riddle #blueprint for one riddle
         puts "Uh oh! You did not solve the #{riddle_name}."
     end
     def to_s #deleting print_progress and replacing to_s just allows me to print this in index saying e.g puts riddle_1
-        attempts_info = "You have have attempted this riddle #{@attempts_this_riddle} times.\n"
-        points_info = "You have a total of #{@riddle_points} points so far.\n \n"
+        attempts_info = "You have have attempted this riddle #{@attempts_this_riddle} times.\n".yellow
+        points_info = "You have a total of #{@riddle_points} points so far.\n \n".cyan
         return attempts_info + points_info
     end
 end
