@@ -1,4 +1,4 @@
-#4 Dec 2020 video
+#4 Dec 2020 video about 24 min
 #We should only be calling methods etc here. 
 
 # A class is a blueprint where we can create a supervariable containing info and methods.
@@ -26,20 +26,23 @@ require_relative("./ascii.rb")
 #@answer
 #@attempts_this_riddle 
 #To create an object (aka to create an instance)
-first_riddle = Riddle.new(
-    "First riddle. ", 
-    "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I? ", 
-    "A reflection without an image. ",
-    "I can be used for navigation. ",
-    "echo"
-)
-second_riddle = Riddle.new(
-    "Second riddle.",    
-    "I am always hungry and will die if not fed, whatever I touch will soon turn red. ",
-    "What was red is left in shades from black to white, after I left. ",
-    "I require heat, fuel and oxygen. ",
-    "fire"
-)
+
+#to make array of riddles, riddles_bb = [Riddle.new("First riddle", "",""), Riddle.new("First riddle", "","")]
+riddles_array = [
+    first_riddle = Riddle.new(
+        "First riddle. ", 
+        "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I? ", 
+        "A reflection without an image. ",
+        "I can be used for navigation. ",
+        "echo"
+    ),
+    second_riddle = Riddle.new(
+        "Second riddle.",    
+        "I am always hungry and will die if not fed, whatever I touch will soon turn red. ",
+        "What was red is left in shades from black to white, after I left. ",
+        "I require heat, fuel and oxygen. ",
+        "fire"
+    )]
 
 
 
@@ -59,8 +62,15 @@ second_riddle = Riddle.new(
 #MENU
 $prompt = TTY::Prompt.new #$Global Variable
 def select_option 
-    return $prompt.select("Choose your option.", ["Play", "Show progress info", "Score", "Exit"])
+    return $prompt.select("Choose your option:", ["Play", "Show progress info", "Score", "Exit"])
 end
+
+
+puts "Welcome! What is your name?"
+user_name = gets.chomp.to_s
+sleep (1)
+puts "Hello, #{user_name}. Get ready to solve some riddles! "
+sleep (2)
 
 
 answer = ""
@@ -68,12 +78,12 @@ while answer != "Exit"
     answer = select_option
     case answer
         when "Play"
-            puts "Play"
-            puts first_riddle #works here if teh def to_s (prints strings and not memory location) is used in riddles.rb.eg 3 Dec at about 45min
+            play
         when "Show progress info"
             puts "Show progress info"
             #attr_reader 
             puts first_riddle.riddle_name #I am allowed to access the riddle name
+            puts first_riddle #works here if teh def to_s (prints strings and not memory location) is used in riddles.rb.eg 3 Dec at about 45min
         when "Score"
            puts "Score"
         else 

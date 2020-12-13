@@ -7,6 +7,7 @@ require("colorize")
 require("lolize")
 require("tty-prompt")
 
+
 colorizer = Lolize::Colorizer.new
 colorizer.write "
 
