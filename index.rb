@@ -13,9 +13,9 @@ require("tty-prompt")
 
 #access info from all other files
 require_relative("./riddle.rb")
-require_relative("./easy.rb")
-require_relative("./normal.rb")
-require_relative("./hard.rb")
+#require_relative("./easy.rb")
+#require_relative("./normal.rb")
+#require_relative("./hard.rb")
 require_relative("./ascii.rb")
 
 
@@ -58,27 +58,35 @@ riddles_array = [
 #puts EasyRiddle.totalMembers accesses class method with class variable.@@
 #array_riddles = []
 
-
-#MENU
-$prompt = TTY::Prompt.new #$Global Variable
-def select_option 
-    return $prompt.select("Choose your option:", ["Play", "Show progress info", "Score", "Exit"])
-end
-
-
+#WELCOME INTRO
 puts "Welcome! What is your name?"
-user_name = gets.chomp.to_s
+user_name = gets.chomp #this returns a string. 
 sleep (1)
 puts "Hello, #{user_name}. Get ready to solve some riddles! "
 sleep (2)
 
+#MENU
+$prompt = TTY::Prompt.new #$Global Variable
+def select_option #MAIN MENU
+    return $prompt.select("Choose your option:", ["Play", "Show progress info", "Score", "Exit"])
+end
+
+$prompt2 = TTY::Prompt.new
+def difficulty_mode #play submenu
+    return $prompt2.select("Choose your game difficulty:", ["EASY", "NORMAL", "HARD", "Back"])
+end
+
+def play
+ 
+end
 
 answer = ""
 while answer != "Exit"
     answer = select_option
     case answer
         when "Play"
-            play
+            difficulty_mode
+            play  
         when "Show progress info"
             puts "Show progress info"
             #attr_reader 
@@ -90,3 +98,7 @@ while answer != "Exit"
             puts "Exit"
         end
     end
+
+
+
+    

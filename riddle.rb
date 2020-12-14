@@ -13,9 +13,6 @@ class Riddle #blueprint for one riddle
         @attempts_this_riddle = 0  #NOt in def line.I want to put this outside the class so I can have easy and hard mode allowing diff number of attempts?
         @riddle_points = 0 #Not in def line.increases if def solved
     end
-    
-
-
     def solved #action method in class
         puts "YAYY!! the answer is #{@answer}"
         @riddle_points += 1
