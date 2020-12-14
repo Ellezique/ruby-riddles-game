@@ -28,7 +28,7 @@ require_relative("./ascii.rb")
 #To create an object (aka to create an instance)
 
 #to make array of riddles, riddles_bb = [Riddle.new("First riddle", "",""), Riddle.new("First riddle", "","")]
-riddles_array = [
+$riddles_array = [
     first_riddle = Riddle.new(
         "First riddle. ", 
         "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I? ", 
@@ -44,7 +44,7 @@ riddles_array = [
         "fire"
     )]
 
-
+ 
 
 
 
@@ -83,28 +83,59 @@ def score
     #see video lecutre 4 Dec 2020 from 33min. 
 end
 #PLAY METHODS
+
+
 def play
-    puts "You have #{$t} tries."
-    puts "You have #{$r} retries."
+    puts "You have #{$t} tries.".cyan
+    puts "You have #{$r} retries.".cyan
     #loops and stuff go here
+    score = 0
+    x = 0 #number of riddle 0 - 9
+    try_count = 0
+    retry_count = 0
+    #FOR EACH RIDDLE LOOP
+    #while x <= 1 #number of indexes.there are 0-9 indexes in an array of 10 riddles]
+    #TRY COUNT LOOP
+        while try_count < $t && score < 1
+            puts $riddles_array[x].riddle_name.magenta
+            puts $riddles_array[x].actual_riddle
+            correct_answer = $riddles_array[x].answer
+            user_guess = gets.chomp
+            try_count += 1
+            if user_guess == correct_answer 
+                sleep (1)
+                puts "Yes! The correct answer is #{correct_answer}.".green
+                score += 1
+            else  
+                puts "Nope! That is not the answer.".red
+            end           
+            puts "Your score is #{score}."
+            puts "You tried this riddle #{try_count} times."   
+        end
+         #END TRY COUNT LOOP
+         x += 1
+         puts "x is #{x}"
+         puts "out of loop"
+    #end
 end
 
 def play_mode
     difficulty = select_difficulty
-    puts "You have chosen to play #{difficulty} mode."
-    if difficulty == "EASY"
-        $t = 3
-        $r = 2
-        play
-    elsif difficulty == "RECOMMENDED"
-        $t = 2
-        $r = 2
-        play
-    else #difficulty == "HARD"
-        $t = 2
-        $r = 0
-        play
-    end
+    puts "You have chosen to play #{difficulty} mode.".blue
+    case difficulty
+        when "EASY"
+            $t = 3
+            $r = 2
+            play
+        when "RECOMMENDED"
+            $t = 2
+            $r = 2
+            play
+        when "HARD"
+            $t = 2
+            $r = 0
+            play
+        end
 end
 
 
