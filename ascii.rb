@@ -3,6 +3,11 @@
 #https://fsymbols.com/generators/carty/
 
 #GEMS
+
+
+
+=begin #REMOVE WHEN DONE
+
 require("colorize")
 require("lolize")
 require("tty-prompt")
@@ -25,3 +30,5 @@ colorizer.write "
 ─██████──██████████─██████████─████████████───████████████───██████████████─██████████████─██████████████─
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 "
+
+=end #REMOVE WHEN DONE

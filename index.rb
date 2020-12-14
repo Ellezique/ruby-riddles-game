@@ -58,12 +58,14 @@ riddles_array = [
 #puts EasyRiddle.totalMembers accesses class method with class variable.@@
 #array_riddles = []
 
+=begin COMMENTED OUT DURING BUILD> ADD BACK IN AT END 
 #WELCOME INTRO
 puts "Welcome! What is your name?"
 user_name = gets.chomp #this returns a string. 
 sleep (1)
 puts "Hello, #{user_name}. Get ready to solve some riddles! "
 sleep (2)
+=end
 
 #MENU
 $prompt = TTY::Prompt.new #$Global Variable
@@ -71,29 +73,42 @@ def select_option #MAIN MENU
     return $prompt.select("Choose your option:", ["Play", "Show progress info", "Score", "Exit"])
 end
 
-$prompt2 = TTY::Prompt.new
-def difficulty_mode #play submenu
-    return $prompt2.select("Choose your game difficulty:", ["EASY", "NORMAL", "HARD", "Back"])
+def select_difficulty #play submenu
+    return $prompt.select("Choose your game difficulty:", ["EASY", "RECOMMENDED", "HARD"])
 end
 
-def play
- 
+#SCORE METHODS
+def score
+    puts "Score"
+    #see video lecutre 4 Dec 2020 from 33min. 
 end
+#PLAY METHODS
+def play
+    difficulty = select_difficulty
+    puts "You have chosen to play #{difficulty} mode."
+    if difficulty == "EASY"
+        puts "testing"
+    else
+        puts "still testing"
+    end
+end
+
+
 
 answer = ""
+#Loop for the menu, always shows until Exit option is selected
 while answer != "Exit"
     answer = select_option
     case answer
         when "Play"
-            difficulty_mode
-            play  
+            play           
         when "Show progress info"
             puts "Show progress info"
             #attr_reader 
             puts first_riddle.riddle_name #I am allowed to access the riddle name
             puts first_riddle #works here if teh def to_s (prints strings and not memory location) is used in riddles.rb.eg 3 Dec at about 45min
         when "Score"
-           puts "Score"
+            score
         else 
             puts "Exit"
         end
