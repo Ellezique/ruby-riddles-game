@@ -84,12 +84,26 @@ def score
 end
 #PLAY METHODS
 def play
+    puts "You have #{$t} tries."
+    puts "You have #{$r} retries."
+    #loops and stuff go here
+end
+
+def play_mode
     difficulty = select_difficulty
     puts "You have chosen to play #{difficulty} mode."
     if difficulty == "EASY"
-        puts "testing"
-    else
-        puts "still testing"
+        $t = 3
+        $r = 2
+        play
+    elsif difficulty == "RECOMMENDED"
+        $t = 2
+        $r = 2
+        play
+    else #difficulty == "HARD"
+        $t = 2
+        $r = 0
+        play
     end
 end
 
@@ -101,7 +115,7 @@ while answer != "Exit"
     answer = select_option
     case answer
         when "Play"
-            play           
+            play_mode           
         when "Show progress info"
             puts "Show progress info"
             #attr_reader 
@@ -112,8 +126,4 @@ while answer != "Exit"
         else 
             puts "Exit"
         end
-    end
-
-
-
-    
+    end 
