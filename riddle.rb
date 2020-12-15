@@ -10,9 +10,13 @@ class Riddle #blueprint for one riddle
         @first_tip = first_tip
         @second_tip = second_tip
         @answer = answer
-        @attempts_this_riddle = 0  #NOt in def line.I want to put this outside the class so I can have easy and hard mode allowing diff number of attempts?
-        @riddle_points = 0 #Not in def line.increases if def solved
+        #@score = 0
+        #@try_count = 0
+        #@retry_count = 0
     end
+    
+#I HAVENT USED ANY OF THE METHODS BELOW
+=begin
     def solved #action method in class
         puts "YAYY!! the answer is #{@answer}"
         @riddle_points += 1
@@ -22,17 +26,18 @@ class Riddle #blueprint for one riddle
         puts "Uh oh! You did not solve the #{riddle_name}."
         @attempts_this_riddle += 1
     end
-    def print_ladder
-        #puts "Riddle Name\t Attempts\t Points\t"
-        puts "#{@riddle_name} #{@attempts_this_riddle} #{@riddle_points}"
-        #@riddle_name.each do |riddle_name|
-        #    riddle_name.print_ladder_format #create laddder format
+
+    def print_ladder_format
+        puts "#{@riddle_name} #{@try_count} #{retry_count} #{@riddle_points}"
+        puts "TOTAL #{@score}"
     end
+
     def to_s #deleting print_progress and replacing to_s just allows me to print this in index saying e.g puts riddle_1
         attempts_info = "You have have attempted this riddle #{@attempts_this_riddle} times.\n".yellow
         points_info = "You have a total of #{@riddle_points} points so far.\n \n".cyan
         return attempts_info + points_info
     end
+=end
+
 end
 
-#3 Dec at 35min
