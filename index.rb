@@ -136,7 +136,7 @@ def play
         puts "Your total score is #{score}." #totals up for total score
         puts "You've had a total of #{try_count} attempts for this riddle." #totals up for all riddle tries
         puts "You've had #{retry_count} retries for this riddle."
-        #SCORE push each riddle score to the table for tallying. see arrays.
+        #push each riddle score to the table for tallying.
     #ON TO THE NEXT RIDDLE
         x += 1
         puts "x is #{x}"
