@@ -77,29 +77,21 @@ def select_difficulty #play submenu
     return $prompt.select("Choose your game difficulty:", ["EASY", "RECOMMENDED", "HARD"])
 end
 
-#SCORE METHODS
-def score
-    puts "Score"
-    #see video lecutre 4 Dec 2020 from 33min. 
-end
 #PLAY METHODS
-
-
 def play
-    puts "You have #{$t} tries.".cyan
-    puts "You have #{$r} retries.".cyan
+    puts "You have #{$t} tries per riddle.".cyan
+    puts "You have #{$r} retries per riddle.".cyan
     #loops and stuff go here
-    score = 0
-    x = 0 #number of riddle 0 - 9
-   
+    $score = 0 #GIVES TOTAL SCORE
+    x = 0 #number of riddle 0 - 9 
+    $try_counts_array = [] #index 0, is riddle 1 etc e.g. puts total_score_array[0] is the first array score
+    $retry_counts_array = []
+   #LOOP PLAYING EACH RIDDLE
     while x <= 1 #number of riddles index 0,1,2...
-        try_count = 0
-        retry_count = 0
-        #FOR EACH RIDDLE LOOP
-        #while x <= 1 #number of indexes.there are 0-9 indexes in an array of 10 riddles]
+        try_count = 0 #try_count for this riddle only
+        retry_count = 0 #
         #TRY COUNT LOOP
         correct_answer = $riddles_array[x].answer
-        #TRY LOOP
         loop do # DO LOOP WILL RUN AT LEAST ONCE.
             puts $riddles_array[x].riddle_name.magenta
             puts $riddles_array[x].actual_riddle
@@ -109,15 +101,14 @@ def play
             if user_guess == correct_answer 
                 sleep (1)
                 puts "Yes! The correct answer is #{correct_answer}.".green
-                score += 1
+                $score += 1
             else  
                 puts "Nope! That is not the answer.".red
             end 
             break if user_guess == correct_answer 
-            #RETRY LOOP
+            #RETRY COUNT LOOP
             if try_count >= $t && retry_count <= $r
                 y = $riddles_array[x].first_tip
-                #correct_answer = $riddles_array[x].answer
                 while user_guess != correct_answer && retry_count < $r
                     puts "Retry.".yellow
                     puts y
@@ -126,24 +117,25 @@ def play
                     if user_guess == correct_answer 
                         sleep (1)
                         puts "Yes! You finally got there with some help. The correct answer is #{correct_answer}.".green
-                        score += 1
+                        $score += 1
                     else  
                         puts "Nope! Not even with a tip.".red
                         y = $riddles_array[x].second_tip
                     end       
                 end
+                #PUSH try_count and retry_count, for each riddle, so we can use that in score
+                puts "Number of attempts for this riddle: #{try_count}."
+                $try_counts_array.push(try_count)
+                puts "Number of retries (with help) for this riddle: #{retry_count}"
+                $retry_counts_array.push(retry_count)
             end
             break if try_count >= $t && retry_count <= $r
-        end              
-        x += 1
-        puts "Your total score is #{score}." #totals up for total score
-        puts "You've had a total of #{try_count} attempts." #totals up for all riddle tries
-        puts "You've had a total of #{retry_count} retries ."
-        #push each riddle score to the table for tallying.
-    #ON TO THE NEXT RIDDLE
-       
+        end          
+        #ON TO THE NEXT RIDDLE
+        x += 1    
         puts "x is #{x}"
         puts "out of loop"
+        puts "Yout total score is #{$score}. You solved #{$score} riddles. Select 'Score' in the menu to see your stats and score."
     end
 end
 
@@ -166,8 +158,21 @@ def play_mode
         end
 end
 
+#SCORE METHODS
+def menu_score
+    puts "Your total score is #{$score}. You solved #{$score} riddles.".light_green
+    puts "Retry counts array: #{$retry_counts_array}.".light_blue
+    puts "Try counts array: #{$try_counts_array}.".cyan
+    
+    #total_try_count = []
+    #puts total_try_count
 
+    #total_retry_count = []
+    #puts total_retry_count
+    #see video lecutre 4 Dec 2020 from 33min. 
+end
 
+#PROGRAM 
 answer = ""
 #Loop for the menu, always shows until Exit option is selected
 while answer != "Exit"
@@ -181,7 +186,7 @@ while answer != "Exit"
             puts first_riddle.riddle_name #I am allowed to access the riddle name
             puts first_riddle #works here if teh def to_s (prints strings and not memory location) is used in riddles.rb.eg 3 Dec at about 45min
         when "Score"
-            score
+            menu_score
         else 
             puts "Exit"
         end
