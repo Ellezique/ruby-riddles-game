@@ -98,47 +98,50 @@ def play
         #FOR EACH RIDDLE LOOP
         #while x <= 1 #number of indexes.there are 0-9 indexes in an array of 10 riddles]
         #TRY COUNT LOOP
-        loop do #try_count < $t && user_guess != correct_answer #score < 1  DO LOOP WILL RUN AT LEAST ONCE
+        correct_answer = $riddles_array[x].answer
+        #TRY LOOP
+        loop do # DO LOOP WILL RUN AT LEAST ONCE.
             puts $riddles_array[x].riddle_name.magenta
             puts $riddles_array[x].actual_riddle
-            correct_answer = $riddles_array[x].answer
-            $user_guess = gets.chomp.downcase
+            # correct_answer = $riddles_array[x].answer
+            user_guess = gets.chomp.downcase
             try_count += 1
-            if $user_guess == $correct_answer 
+            if user_guess == correct_answer 
                 sleep (1)
-                puts "Yes! The correct answer is #{$correct_answer}.".green
+                puts "Yes! The correct answer is #{correct_answer}.".green
                 score += 1
             else  
                 puts "Nope! That is not the answer.".red
             end 
-            break if $user_guess == $correct_answer 
-            break if try_count >= $t  
-        end              
-        #RETRY LOOP
-        y = $riddles_array[x].first_tip
-        correct_answer = $riddles_array[x].answer
-        loop do  
-            puts "You have #{$r} retries".yellow
-            puts y
-            user_guess = gets.chomp.downcase
-            retry_count += 1
-            if user_guess == correct_answer 
-                sleep (1)
-                puts "Yes! You finally got there with some help. The correct answer is #{correct_answer}.".green
-                score += 1
-            else  
-                puts "Nope! Not even with a tip.".red
-                y = $riddles_array[x].second_tip
-            end  
             break if user_guess == correct_answer 
-            break if retry_count >= $r         
-        end
+            #RETRY LOOP
+            if try_count >= $t && retry_count <= $r
+                y = $riddles_array[x].first_tip
+                #correct_answer = $riddles_array[x].answer
+                while user_guess != correct_answer && retry_count < $r
+                    puts "Retry.".yellow
+                    puts y
+                    user_guess = gets.chomp.downcase
+                    retry_count += 1
+                    if user_guess == correct_answer 
+                        sleep (1)
+                        puts "Yes! You finally got there with some help. The correct answer is #{correct_answer}.".green
+                        score += 1
+                    else  
+                        puts "Nope! Not even with a tip.".red
+                        y = $riddles_array[x].second_tip
+                    end       
+                end
+            end
+            break if try_count >= $t && retry_count <= $r
+        end              
+        x += 1
         puts "Your total score is #{score}." #totals up for total score
-        puts "You've had a total of #{try_count} attempts for this riddle." #totals up for all riddle tries
-        puts "You've had #{retry_count} retries for this riddle."
+        puts "You've had a total of #{try_count} attempts." #totals up for all riddle tries
+        puts "You've had a total of #{retry_count} retries ."
         #push each riddle score to the table for tallying.
     #ON TO THE NEXT RIDDLE
-        x += 1
+       
         puts "x is #{x}"
         puts "out of loop"
     end
