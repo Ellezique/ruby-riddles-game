@@ -3,4 +3,6 @@
 
 #READ LECTURE 26th loops and methods = done
 
-#WATCH 4 DECEMBER about 40min in to build score board ladder thing
+
+#GOT THROUGHT THE CODE. I DIDNT uSE THE INITIALIZE THINGIES.
+#WATCH 4 DECEMBER about 40min in to build score board ladder thing. #Scoring is an issue. See if it can just be printed

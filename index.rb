@@ -29,7 +29,8 @@ $riddles_array = [
         "What was red is left in shades from black to white, after I left. ",
         "I require heat, fuel and oxygen. ",
         "fire"
-    ),
+    )
+=begin ,
     third_riddle = Riddle.new (
         "Third riddle.",
         "Three lives have I.\n Gentle enough to soothe the skin. Light enough to caress the sky. \n Hard enough to crack rocks.",
@@ -51,15 +52,17 @@ $riddles_array = [
         "What the poor have, the rich require, and what contented men desire.",
         "What the miser spends and the spendthrift saves, and all men carry to their graves?"
         "nothing"
-    )]
+    )
+=end
+]
 
-##=begin COMMENTED OUT DURING BUILD> ADD BACK IN AT END 
+#=begin COMMENTED OUT DURING BUILD> ADD BACK IN AT END 
 def welcome
     puts "Welcome! What is your name?"
     user_name = gets.chomp #this returns a string. 
     sleep (1)
     puts "Hello, #{user_name}. Each riddle has a one word answer. Get ready to solve some riddles!"
-    sleep (2)
+    sleep (1)
 end
 #=end
 
@@ -67,7 +70,7 @@ end
 #MENU
 $prompt = TTY::Prompt.new #$Global Variable
 def select_option #MAIN MENU
-    return $prompt.select("Choose your option:", ["Play", "Score", "Exit"])
+    return $prompt.select("Choose your option:", ["Play", "Score", "Credits", "Exit"])
 end
 #SUBMENU
 def select_difficulty
@@ -158,16 +161,24 @@ end
 #SCORE METHODS
 def menu_score
     puts "Your total score is #{$score}. You solved #{$score} riddles.".light_green
-    puts "Retry counts array: #{$retry_counts_array}.".light_blue
-    puts "Try counts array: #{$try_counts_array}.".cyan
-    #puts "{@riddle_name} #{@try_count} #{retry_count} #{@riddle_points}"
-
+    puts "Riddle 1 ,2 ,3, 4, 5"
+    puts "Retry counts: #{$retry_counts_array}.".light_blue
+    puts "Try counts: #{$try_counts_array}.".cyan   
+=begin
+    puts "Riddle name \t Tries \t Retries \t Solved"
+    @riddle_name.each do |riddle|
+        riddle.print_menu_score_format
+    end
+=end
 end
 #CREDITS
 def credits
-    puts "\n A special thanks to Susan NgYu, at Hobby Lark, for collecting these riddles. \n Cheaters check out their site. \n You know you want to. \n  Just go to: https://hobbylark.com/puzzles/20-Best-Riddles-Ever".yellow
+    colorizer = Lolize::Colorizer.new
+    colorizer.write "\n A special thanks to Susan NgYu, at Hobby Lark, for collecting these riddles. \n  Cheaters check out their webpage. \n   You know you want to. \n    Just go to: https://hobbylark.com/puzzles/20-Best-Riddles-Ever \n    
+    THANK YOU FOR PLAYING \n  Game by Gizelle v.Z. © 2020 \n \n"
 end
 #PROGRAM 
+riddles_ascii
 answer = ""
 welcome
 #Loop for the menu, shows until Exit option is selected
@@ -175,11 +186,16 @@ while answer != "Exit"
     answer = select_option
     case answer
         when "Play"
-            play_mode
-            credits          
+            play_ascii
+            play_mode   
+            game_over     
         when "Score"
+            score_ascii
             menu_score
             #print_ladder_format
+        when "Credits"
+            credits_ascii
+            credits 
         else 
             puts "Exit"
         end
