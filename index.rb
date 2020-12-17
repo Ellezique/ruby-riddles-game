@@ -56,13 +56,20 @@ $riddles_array = [
 =end
 ]
 
-#=begin COMMENTED OUT DURING BUILD> ADD BACK IN AT END 
+
+
+#WELCOME
 def welcome
-    puts "Welcome! What is your name?"
-    user_name = gets.chomp #this returns a string. 
+    #ARGV - COMMAND LINE
+    title = "Riddles" #Default. User not given option to change.    
+    user_name = "Player One" #Reference to Ernest Cline novel.
+    user_name = ARGV[0] if ARGV[0] #if it exists and is not nil 
+    puts "Welcome to #{title}. Ready, #{user_name}!"
+    #puts "What is your name?"
+    #user_name = gets.chomp #this returns a string. 
     sleep (1)
-    puts "Hello, #{user_name}. Each riddle has a one word answer. Get ready to solve some riddles!"
-    sleep (1)
+    #puts "Hello, #{user_name}."
+    puts "Each riddle has a one word answer. Get ready to solve some riddles!".cyan
 end
 #=end
 
