@@ -99,7 +99,7 @@ def play
                 puts "Yes! The correct answer is #{correct_answer}.".green
                 solved_push 
                 $try_counts_array.push(try_count)
-                retry_count = " " #need to push something to empty array as a placeholder if user solves without retries.
+                retry_count = "0" #need to push something to empty array as a placeholder if user solves without retries.
                 $retry_counts_array.push(retry_count)
             else
                 puts "Nope! That is not the answer.".red
@@ -207,7 +207,8 @@ riddles_ascii
 #Command Line ARGV and default
 title = "Riddles" #Default. User not given option to change.    
 $user_name = "Player One" #Reference to Ernest Cline novel.
-$user_name = ARGV[0] if ARGV[0] #if it exists and is not nil 
+$user_name = ARGV[0] if ARGV[0] #if it exists and is not nil
+ARGV.clear 
 puts "Welcome to #{title}. Ready, #{$user_name}!"
 #puts "What is your name?"
 #user_name = gets.chomp #this returns a string. 
