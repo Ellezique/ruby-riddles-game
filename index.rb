@@ -57,23 +57,6 @@ $riddles_array = [
 ]
 
 
-
-#WELCOME
-def welcome
-    #ARGV - COMMAND LINE
-    title = "Riddles" #Default. User not given option to change.    
-    $user_name = "Player One" #Reference to Ernest Cline novel.
-    $user_name = ARGV[0] if ARGV[0] #if it exists and is not nil 
-    puts "Welcome to #{title}. Ready, #{$user_name}!"
-    #puts "What is your name?"
-    #user_name = gets.chomp #this returns a string. 
-    sleep (1)
-    #puts "Hello, #{user_name}."
-    puts "Each riddle has a one word answer. Get ready to solve some riddles!".cyan
-end
-#=end
-
-
 #MENU
 $prompt = TTY::Prompt.new 
 def select_option #MAIN MENU
@@ -156,6 +139,7 @@ def play
         #puts "x is #{x}"
         #puts "out of loop"
         puts "You solved #{$score} riddles."
+        puts "Good game, #{$user_name}."
     end
 end
 
@@ -180,6 +164,9 @@ end
 
 #SCORE METHODS
 def menu_score
+    puts "#{$user_name}'s game stats...
+    "
+    sleep (1)
     puts "Riddle:\t\t First\t Second\t Third\t Fourth\t Fifth".magenta
     if $try_counts_array != nil  #if you have not played, the try array is empty and returns nil
         print "Try count: "
@@ -196,6 +183,7 @@ def menu_score
         $riddle_solved_array.each do |riddle_solved|
             print "\t #{riddle_solved}".light_blue
         end
+        sleep (1)
         puts "\n\nYour total score is #{$score}. You solved #{$score} riddles.\n".light_green
     else 
         puts "\nYou need to play the game before you can get a score.".cyan
@@ -215,7 +203,18 @@ end
 
 #PROGRAM 
 riddles_ascii
-welcome
+#WELCOME
+#Command Line ARGV and default
+title = "Riddles" #Default. User not given option to change.    
+$user_name = "Player One" #Reference to Ernest Cline novel.
+$user_name = ARGV[0] if ARGV[0] #if it exists and is not nil 
+puts "Welcome to #{title}. Ready, #{$user_name}!"
+#puts "What is your name?"
+#user_name = gets.chomp #this returns a string. 
+#puts "Hello, #{user_name}."
+puts "Each riddle has a one word answer. Get ready to solve some riddles!".cyan
+sleep (1)
+
 answer = ""
 while answer != "Exit"
     answer = select_option
