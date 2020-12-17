@@ -62,9 +62,9 @@ $riddles_array = [
 def welcome
     #ARGV - COMMAND LINE
     title = "Riddles" #Default. User not given option to change.    
-    user_name = "Player One" #Reference to Ernest Cline novel.
-    user_name = ARGV[0] if ARGV[0] #if it exists and is not nil 
-    puts "Welcome to #{title}. Ready, #{user_name}!"
+    $user_name = "Player One" #Reference to Ernest Cline novel.
+    $user_name = ARGV[0] if ARGV[0] #if it exists and is not nil 
+    puts "Welcome to #{title}. Ready, #{$user_name}!"
     #puts "What is your name?"
     #user_name = gets.chomp #this returns a string. 
     sleep (1)
@@ -209,7 +209,7 @@ def credits
     colorizer.write "\n A special thanks to Susan Ng Yu, at Hobby Lark, for collecting these riddles. \n  Cheaters check out their webpage. \n   You know you want to. \n    Just go to: https://hobbylark.com/puzzles/20-Best-Riddles-Ever \n
         Another thanks to FSYMBOLS Font Generators. 
          Check out their ASCII Text Art Generator at https://fsymbols.com/generators/carty/ \n
-          THANK YOU FOR PLAYING \n          
+          THANK YOU FOR PLAYING, #{$user_name}! \n          
            Game by Gizelle v.Z. © 2020 \n \n"
 end
 
