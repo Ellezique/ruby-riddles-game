@@ -1,5 +1,6 @@
+#ASCII HEADERS
+
 require("lolize")
-#require("tty-prompt")
 
 def riddles_ascii
     colorizer = Lolize::Colorizer.new

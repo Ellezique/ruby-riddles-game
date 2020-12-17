@@ -10,6 +10,7 @@ class Riddle #blueprint for one riddle
         @first_tip = first_tip
         @second_tip = second_tip
         @answer = answer
+    #FOR EACH PARTICULAR RIDDLE BUT NOT THE TOTAL SCORES
         #@score = 0
         #@try_count = 0
         #@retry_count = 0
@@ -23,12 +24,12 @@ class Riddle #blueprint for one riddle
         @attempts_this_riddle += 1
     end
     def not_solved #action method in class
-        puts "Uh oh! You did not solve the #{riddle_name}."
+        puts "Uh oh! You did not solve the #{@riddle_name}."
         @attempts_this_riddle += 1
     end
 
     def print_ladder_format
-        puts "#{@riddle_name} #{@try_count} #{retry_count} #{@riddle_points}"
+        puts "#{@riddle_name} #{@try_count} #{@retry_count} #{@riddle_points}"
         puts "TOTAL #{@score}"
     end
 

@@ -68,24 +68,30 @@ end
 
 
 #MENU
-$prompt = TTY::Prompt.new #$Global Variable
+$prompt = TTY::Prompt.new 
 def select_option #MAIN MENU
     return $prompt.select("Choose your option:", ["Play", "Score", "Credits", "Exit"])
 end
 #SUBMENU
 def select_difficulty
-    return $prompt.select("Choose your game difficulty:", ["EASY", "RECOMMENDED", "HARD"])
+    return $prompt.select("Choose your game difficulty:", ["EASY", "RECOMMENDED", "HARD", "Back"])
 end
 
 #PLAY METHODS
+def solved_push
+    $score += 1
+    riddle_solved = "yes"
+    $riddle_solved_array.push(riddle_solved)
+end
+
 def play
     puts "You have #{$t} tries per riddle.".cyan
     puts "You have #{$r} retries per riddle. Retries come with tips so they are only available in EASY and RECOMMENDED modes.".cyan
-    #loops and stuff go here
     $score = 0 #GIVES TOTAL SCORE
     x = 0 #number of riddle 0 - 9 
     $try_counts_array = [] #index 0, is riddle 1 etc e.g. puts total_score_array[0] is the first array score
     $retry_counts_array = []
+    $riddle_solved_array = [] 
    #LOOP PLAYING EACH RIDDLE
     while x <= 1 #number of riddles index 0,1,2...
         try_count = 0 #try_count for this riddle only
@@ -101,8 +107,11 @@ def play
             if user_guess == correct_answer 
                 sleep (1)
                 puts "Yes! The correct answer is #{correct_answer}.".green
-                $score += 1
-            else  
+                solved_push 
+                $try_counts_array.push(try_count)
+                retry_count = " " #need to push something to empty array as a placeholder if user solves without retries.
+                $retry_counts_array.push(retry_count)
+            else
                 puts "Nope! That is not the answer.".red
             end 
             break if user_guess == correct_answer 
@@ -117,31 +126,35 @@ def play
                     if user_guess == correct_answer 
                         sleep (1)
                         puts "Yes! You finally got there with some help. The correct answer is #{correct_answer}.".green
-                        $score += 1
+                        solved_push
                     else  
                         puts "Nope! Not even with a tip.".red
                         y = $riddles_array[x].second_tip
                     end       
                 end
+                if user_guess != correct_answer
+                    riddle_solved = "no"
+                    $riddle_solved_array.push(riddle_solved)
+                end
                 #PUSH try_count and retry_count, for each riddle, so we can use that in score
-                puts "Number of attempts for this riddle: #{try_count}."
+                #puts "Number of attempts for this riddle: #{try_count}."
                 $try_counts_array.push(try_count)
-                puts "Number of retries (with help) for this riddle: #{retry_count}"
+                #puts "Number of retries (with help) for this riddle: #{retry_count}"
                 $retry_counts_array.push(retry_count)
             end
             break if try_count >= $t && retry_count <= $r
         end          
         #ON TO THE NEXT RIDDLE
         x += 1    
-        puts "x is #{x}"
-        puts "out of loop"
-        puts "Yout total score is #{$score}. You solved #{$score} riddles. Select 'Score' in the menu to see your stats and score."
+        #puts "x is #{x}"
+        #puts "out of loop"
+        puts "You solved #{$score} riddles."
     end
 end
 
 def play_mode
     difficulty = select_difficulty
-    puts "You have chosen to play #{difficulty} mode.".blue
+    puts "You have chosen #{difficulty}.".blue
     case difficulty
         when "EASY"
             $t = 3
@@ -160,39 +173,54 @@ end
 
 #SCORE METHODS
 def menu_score
-    puts "Your total score is #{$score}. You solved #{$score} riddles.".light_green
-    puts "Riddle 1 ,2 ,3, 4, 5"
-    puts "Retry counts: #{$retry_counts_array}.".light_blue
-    puts "Try counts: #{$try_counts_array}.".cyan   
-=begin
-    puts "Riddle name \t Tries \t Retries \t Solved"
-    @riddle_name.each do |riddle|
-        riddle.print_menu_score_format
+    puts "Riddle:\t\t First\t Second\t Third\t Fourth\t Fifth".magenta
+    if $try_counts_array != nil  #if you have not played, the try array is empty and returns nil
+        print "Try count: "
+        $try_counts_array.each do |try_per_riddle|
+            print "\t #{try_per_riddle}".cyan
+        end
+        puts ""
+        print "Retry count: "
+        $retry_counts_array.each do |retry_per_riddle|
+            print "\t #{retry_per_riddle}".light_blue
+        end
+        puts ""
+        print "Solved: "
+        $riddle_solved_array.each do |riddle_solved|
+            print "\t #{riddle_solved}".light_blue
+        end
+        puts "\n\nYour total score is #{$score}. You solved #{$score} riddles.\n".light_green
+    else 
+        puts "\nYou need to play the game before you can get a score.".cyan
     end
-=end
 end
+
+
 #CREDITS
 def credits
     colorizer = Lolize::Colorizer.new
-    colorizer.write "\n A special thanks to Susan NgYu, at Hobby Lark, for collecting these riddles. \n  Cheaters check out their webpage. \n   You know you want to. \n    Just go to: https://hobbylark.com/puzzles/20-Best-Riddles-Ever \n    
-    THANK YOU FOR PLAYING \n  Game by Gizelle v.Z. © 2020 \n \n"
+    colorizer.write "\n A special thanks to Susan Ng Yu, at Hobby Lark, for collecting these riddles. \n  Cheaters check out their webpage. \n   You know you want to. \n    Just go to: https://hobbylark.com/puzzles/20-Best-Riddles-Ever \n
+        Another thanks to FSYMBOLS Font Generators. 
+         Check out their ASCII Text Art Generator at https://fsymbols.com/generators/carty/ \n
+          THANK YOU FOR PLAYING \n          
+           Game by Gizelle v.Z. © 2020 \n \n"
 end
+
 #PROGRAM 
 riddles_ascii
-answer = ""
 welcome
-#Loop for the menu, shows until Exit option is selected
+answer = ""
 while answer != "Exit"
     answer = select_option
     case answer
         when "Play"
             play_ascii
             play_mode   
-            game_over     
+            game_over  
+            puts "Select 'Score' in the menu to see your stats and score.".light_blue   
         when "Score"
             score_ascii
             menu_score
-            #print_ladder_format
         when "Credits"
             credits_ascii
             credits 
