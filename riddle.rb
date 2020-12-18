@@ -1,6 +1,4 @@
-#Make this a parent class so easy and normal children can inherit
-
-class Riddle #blueprint for one riddle
+class Riddle #blueprint for each riddle
     attr_reader :riddle_name, :actual_riddle, :first_tip, :second_tip, :answer #allows me to read access this attribute outside the class and use it in index.rb
     #attr_accessor allows this to be readable and writable.
     #def initialize: all @attributes in class. Scope is limited in class.
@@ -16,6 +14,8 @@ class Riddle #blueprint for one riddle
         #@retry_count = 0
     end
     
+
+
 #I HAVENT USED ANY OF THE METHODS BELOW
 =begin
     def solved #action method in class

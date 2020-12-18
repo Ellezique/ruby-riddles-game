@@ -1,3 +1,27 @@
+commit 274674742ce9a1ae24a6e08b3f9f90b96292f50e
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 21:13:00 2020 +1000
+
+    ARGV error fixed using ARGV.clear.
+
+commit 7605324dfa2c30586ec64609a83974fd204b1b5d
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 21:07:18 2020 +1000
+
+    Change sleep times. Add user_name but error to be fixed
+
+commit 2e202ee7adbf82d43c2a3a9082dd9fa64f221785
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 20:54:11 2020 +1000
+
+    Complete credit page with user_name.
+
+commit dacbb65ad41574335069724a8cb6ac8258dd834c
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 20:12:12 2020 +1000
+
+    ARGV for username  added to welcome.
+
 commit b57a2385f4a18a1245aa07934fded5e31e18c35a
 Author: Ellezique <gizellevanzyl@gmail.com>
 Date:   Thu Dec 17 18:58:54 2020 +1000

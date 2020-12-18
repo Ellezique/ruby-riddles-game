@@ -25,3 +25,6 @@ ARGV[0] accesses "Gigi" to use in program
 
 Documentation: You need to explain this to the user so they know to put it into command line.
 =end
+
+#pACKAGING 11 Dec lecture, week 8 ED lesson.
+#https://rspec.info

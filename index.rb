@@ -1,6 +1,3 @@
-#We should only be calling methods etc here. 
-#PUT EACH CLASS IN THEIR OWN FILE, good for reusability
-
 #GEMS
 require("colorize")
 require("lolize")
@@ -9,12 +6,7 @@ require("tty-prompt")
 require_relative("./riddle.rb")
 require_relative("./ascii.rb")
 
-#RIDDLES
-    #@riddle_name
-    #@actual_riddle
-    #@first_tip
-    #@second_tip
-    #@answer
+#INITIALIZED RIDDLES
 $riddles_array = [
     first_riddle = Riddle.new(
         "First riddle. ", 
@@ -29,16 +21,15 @@ $riddles_array = [
         "What was red is left in shades from black to white, after I left. ",
         "I require heat, fuel and oxygen. ",
         "fire"
-    )
-=begin ,
-    third_riddle = Riddle.new (
+    ),
+    third_riddle = Riddle.new(
         "Third riddle.",
         "Three lives have I.\n Gentle enough to soothe the skin. Light enough to caress the sky. \n Hard enough to crack rocks.",
-        "It is elementary, my dear #{user_name}.",
+        "It is elementary, my dear Watson.",
         "I am transparent and almost colorless. My life is an endless transition between phases.",
         "water"
     ),
-    fourth_riddle = Riddle.new (
+    fourth_riddle = Riddle.new(
         "Fourth riddle",
         "I drift forever with the current down these long canals they've made. \n Tame, yet wild, I run elusive, multitasking to your aid. \n
         Before I came, the world was darker. Colder, sometimes, rougher, true. \n But though I might make living easy, I'm good at killing people too.",
@@ -46,16 +37,13 @@ $riddles_array = [
         "Positive and negative...",
         "electricity"
     ), 
-    fifth_riddle = Riddle.new (
+    fifth_riddle = Riddle.new(
         "Fifth riddle",
         "What does man love more than life, fear more than death or mortal strife?",
         "What the poor have, the rich require, and what contented men desire.",
-        "What the miser spends and the spendthrift saves, and all men carry to their graves?"
+        "What the miser spends and the spendthrift saves, and all men carry to their graves?",
         "nothing"
-    )
-=end
-]
-
+    )]
 
 #MENU
 $prompt = TTY::Prompt.new 
@@ -77,13 +65,15 @@ end
 def play
     puts "You have #{$t} tries per riddle.".cyan
     puts "You have #{$r} retries per riddle. Retries come with tips so they are only available in EASY and RECOMMENDED modes.".cyan
-    $score = 0 #GIVES TOTAL SCORE
+    #set variables:
+    $score = 0 #total score
     x = 0 #number of riddle 0 - 9 
-    $try_counts_array = [] #index 0, is riddle 1 etc e.g. puts total_score_array[0] is the first array score
+    #set empty arrays:
+    $try_counts_array = [] 
     $retry_counts_array = []
     $riddle_solved_array = [] 
    #LOOP PLAYING EACH RIDDLE
-    while x <= 1 #number of riddles index 0,1,2...
+    while x <= 4 #number of riddles index 0..4
         try_count = 0 #try_count for this riddle only
         retry_count = 0 #
         #TRY COUNT LOOP
@@ -127,17 +117,13 @@ def play
                     $riddle_solved_array.push(riddle_solved)
                 end
                 #PUSH try_count and retry_count, for each riddle, so we can use that in score
-                #puts "Number of attempts for this riddle: #{try_count}."
-                $try_counts_array.push(try_count)
-                #puts "Number of retries (with help) for this riddle: #{retry_count}"
-                $retry_counts_array.push(retry_count)
+                $try_counts_array.push(try_count) #Number of attempts for this riddle
+                $retry_counts_array.push(retry_count) #umber of retries (with help) for this riddle
             end
             break if try_count >= $t && retry_count <= $r
         end          
         #ON TO THE NEXT RIDDLE
         x += 1    
-        #puts "x is #{x}"
-        #puts "out of loop"
         puts "You solved #{$score} riddles."
         puts "Good game, #{$user_name}."
     end
@@ -190,7 +176,6 @@ def menu_score
     end
 end
 
-
 #CREDITS
 def credits
     colorizer = Lolize::Colorizer.new
@@ -203,19 +188,16 @@ end
 
 #PROGRAM 
 riddles_ascii
-#WELCOME
 #Command Line ARGV and default
-title = "Riddles" #Default. User not given option to change.    
 $user_name = "Player One" #Reference to Ernest Cline novel.
 $user_name = ARGV[0] if ARGV[0] #if it exists and is not nil
 ARGV.clear 
-puts "Welcome to #{title}. Ready, #{$user_name}!"
+puts "Welcome to Riddles. Ready, #{$user_name}!"
 #puts "What is your name?"
 #user_name = gets.chomp #this returns a string. 
 #puts "Hello, #{user_name}."
 puts "Each riddle has a one word answer. Get ready to solve some riddles!".cyan
 sleep (1)
-
 answer = ""
 while answer != "Exit"
     answer = select_option
