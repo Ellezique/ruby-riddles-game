@@ -1,3 +1,15 @@
+commit f848bb6033f22dc4adcd28fecbb975001271edde
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 18 16:01:09 2020 +1000
+
+    Create run_app.sh
+
+commit 56e17848a5fda1615a2fb6baa23b40890afef125
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 18 15:51:04 2020 +1000
+
+    Make code a bit tidier. Add the commented out riddles back in.
+
 commit 274674742ce9a1ae24a6e08b3f9f90b96292f50e
 Author: Ellezique <gizellevanzyl@gmail.com>
 Date:   Thu Dec 17 21:13:00 2020 +1000

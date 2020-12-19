@@ -189,13 +189,15 @@ end
 #PROGRAM 
 riddles_ascii
 #Command Line ARGV and default
+
 $user_name = "Player One" #Reference to Ernest Cline novel.
-$user_name = ARGV[0] if ARGV[0] #if it exists and is not nil
-ARGV.clear 
+$user_name = ARGV[0] if ARGV[0]  #if it exists and is not nil 
+ARGV.clear #Fixes an error thrown by gets in index.rb game methods when arguments are passed to ruby script.
+
+
+
 puts "Welcome to Riddles. Ready, #{$user_name}!"
-#puts "What is your name?"
-#user_name = gets.chomp #this returns a string. 
-#puts "Hello, #{user_name}."
+#CODE TO ADSK USER NAME
 puts "Each riddle has a one word answer. Get ready to solve some riddles!".cyan
 sleep (1)
 answer = ""
