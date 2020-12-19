@@ -195,15 +195,14 @@ end
 #PROGRAM 
 riddles_ascii
 #Command Line ARGV and default
-
 $user_name = "Player One" #Reference to Ernest Cline novel.
+#ARGV code below: User can add name when opening in terminal e.g. ruby index.rb Name
 $user_name = ARGV[0] if ARGV[0]  #if it exists and is not nil 
-ARGV.clear #Fixes an error thrown by gets in index.rb game methods when arguments are passed to ruby script.
-
-
+#Note user will be asked for name if running program through run_app.sh - will default to Player One if nothing entered.
+ARGV.clear #Fixes an error thrown by gets in index.rb game methods when arguments are passed to ruby script: 
+#i.e. else opening ruby index.rb Name you will get: error index.rb:90:in `gets': No such file or directory @ rb_sysopen - Name (Errno::ENOENT)
 
 puts "Welcome to Riddles. Ready, #{$user_name}!"
-#CODE TO ADSK USER NAME
 puts "Each riddle has a one word answer. Get ready to solve some riddles!".cyan
 sleep (1)
 answer = ""
