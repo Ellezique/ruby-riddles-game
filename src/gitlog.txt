@@ -1,3 +1,15 @@
+commit 1d902793d9dbb5e07102f271d58b8d6ab260dcfc
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 13:03:05 2020 +1000
+
+    Move files to src folder. Change sleep, color and some puts message to improve game.
+
+commit 98efe4655c625fcf8cb48a15af00bdc9d45dbd3b
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 10:45:04 2020 +1000
+
+    Bin bash shell script seeking username input. Works with ARGV code in index.rb
+
 commit f848bb6033f22dc4adcd28fecbb975001271edde
 Author: Ellezique <gizellevanzyl@gmail.com>
 Date:   Fri Dec 18 16:01:09 2020 +1000
