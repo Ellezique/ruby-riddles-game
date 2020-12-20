@@ -1,0 +1,191 @@
+commit c455b46c0fd30be920c9f102812c39a88599b51a
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sun Dec 20 15:37:39 2020 +1000
+
+    Testing and add pdf of two manual tests
+
+commit 8b3e75087c5e28e0d97581dfe8b24adb7d7c5fbc
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sun Dec 20 12:37:09 2020 +1000
+
+    README includes responses and relevant screenshots addressing project criteria.
+
+commit ec5a564be64cec23ae45b19980c684d915b99a64
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 23:51:04 2020 +1000
+
+    README and docs now tracked and committed
+
+commit 3dc8aa50e99ed06fba2e640540b40072ad711638
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 23:49:00 2020 +1000
+
+    README.md draft and docs folder with images for README
+
+commit 28933c3ffc59c1ea7373185404260323bd9d0bdd
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 13:14:39 2020 +1000
+
+    Updated gitlog
+
+commit 1d902793d9dbb5e07102f271d58b8d6ab260dcfc
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 13:03:05 2020 +1000
+
+    Move files to src folder. Change sleep, color and some puts message to improve game.
+
+commit 98efe4655c625fcf8cb48a15af00bdc9d45dbd3b
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 10:45:04 2020 +1000
+
+    Bin bash shell script seeking username input. Works with ARGV code in index.rb
+
+commit f848bb6033f22dc4adcd28fecbb975001271edde
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 18 16:01:09 2020 +1000
+
+    Create run_app.sh
+
+commit 56e17848a5fda1615a2fb6baa23b40890afef125
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 18 15:51:04 2020 +1000
+
+    Make code a bit tidier. Add the commented out riddles back in.
+
+commit 274674742ce9a1ae24a6e08b3f9f90b96292f50e
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 21:13:00 2020 +1000
+
+    ARGV error fixed using ARGV.clear.
+
+commit 7605324dfa2c30586ec64609a83974fd204b1b5d
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 21:07:18 2020 +1000
+
+    Change sleep times. Add user_name but error to be fixed
+
+commit 2e202ee7adbf82d43c2a3a9082dd9fa64f221785
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 20:54:11 2020 +1000
+
+    Complete credit page with user_name.
+
+commit dacbb65ad41574335069724a8cb6ac8258dd834c
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 20:12:12 2020 +1000
+
+    ARGV for username  added to welcome.
+
+commit b57a2385f4a18a1245aa07934fded5e31e18c35a
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 17 18:58:54 2020 +1000
+
+    Fix scoring to working accuracy including more pushes, empty string array placeholder and empty array nil error.
+
+commit 0bb602f10fdcbfffef60d1f8612d25adc05ccc9f
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Wed Dec 16 10:51:39 2020 +1000
+
+    Add ascii with lolize gem as headers
+
+commit ba9f51b81a5d7056d3752e2145c5c350ef4b8851
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Tue Dec 15 21:06:49 2020 +1000
+
+    Initialize all 5 riddles and comment ascii and welcome message back in.
+
+commit 9870372f605ec9a6cb845a48607c39a87e02b3d3
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Tue Dec 15 17:24:57 2020 +1000
+
+    Push try count and retry count to Score.
+
+commit 82a33f8e728a6bdc70977f5bad46cd04e7faf32f
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Tue Dec 15 12:20:37 2020 +1000
+
+    Game play fixed again.
+
+commit da9c4a995c851af7fe55ae81458c6be886ed75ff
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Tue Dec 15 11:22:57 2020 +1000
+
+    Broke game code. Need to fix and improve so that the game works properly.
+
+commit 8cd648985c33e99f246429acbb6af0d1f89460dd
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Tue Dec 15 10:30:37 2020 +1000
+
+    Game play retry loop completed. Loop through all riddles completed.
+
+commit 501d1aa4d277807e450c6edd3ef309d1cff1338d
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Tue Dec 15 00:04:04 2020 +1000
+
+    Attempts at each riddle loop
+
+commit 7c95afca878c6dd201523e42aaf8b253a9a69f65
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Mon Dec 14 19:15:35 2020 +1000
+
+    Fix submenu game difficulty and set variables for tries and retries
+
+commit 12cd3ac220641b1e569c4491b74d20d5d2084df7
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Mon Dec 14 18:35:43 2020 +1000
+
+    Comment out welcome and ascii. Fix submenu selecting game difficulty
+
+commit 5c8d4e4e1460b8af394b6453b6a5d4c501372336
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Mon Dec 14 17:38:22 2020 +1000
+
+    Create submenu for game difficulty
+
+commit dc2867fb02f0b1d75f96ae996f3cdaa9ad86acf7
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sun Dec 13 11:49:30 2020 +1000
+
+    Create welcome message
+
+commit 5efe9279909d02247e6ca16dd356270547178023
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sun Dec 13 08:11:50 2020 +1000
+
+    Start building menu
+
+commit 233fc0579749a36e59b386a59bdb044c59d49ea9
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 12 21:04:31 2020 +1000
+
+    Add gems and create rainbow game name
+
+commit 5b921e00430dc5338580bfe006bc1884b4b3dbc5
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 12 20:16:58 2020 +1000
+
+    Attribute reader and require relative added
+
+commit e6ade1abb2023782f935653b3de444771cb422b1
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 11 18:42:22 2020 +1000
+
+    Create riddle one and two
+
+commit d1f0014dfd65834e422e9354e1422b249dbae1c9
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Fri Dec 11 15:36:02 2020 +1000
+
+    Create Riddle class with initialized, solved and not_solved methods
+
+commit a515ce9ffddd28e9da5140d6b485fb56c253b00f
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 10 19:00:51 2020 +1000
+
+    Create gitlog and index.rb file
+
+commit f0b87a1b2c169bd3f3a75de3a453acc1567e9de0
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Thu Dec 10 16:03:02 2020 +1000
+
+    first commit creating README and docs and src folders
