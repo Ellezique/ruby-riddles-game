@@ -163,7 +163,8 @@ For ease of reference, I provide the following instructions:
 - Now open the run_app.sh file by typing the folliwng, then hit Enter:
 `./run_app.sh`
 - The application will ask you to enter your name. Please do enter your name if you would like the program to call you by your name. If you do not want to enter your name, just hit Enter and the program will refer to you as default "Player One".
-- The `./run_app.sh` file will aslo instruct your computer to download bundler and all gems necessary to run the application. 
+- The `./run_app.sh` file will aslo instruct your computer to download bundler and all gems necessary to run the application - you don't need to worry about these dependencies but for ease of reference (or to satisfy curiosity), the Gemfile lists these gems:
+![Gemfile](./docs/bundler_gems.PNG)
 
 **Thereafter**
 If you want to open the application again later:
