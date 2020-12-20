@@ -27,22 +27,62 @@ The purpose of the game is to make solving riddles more fun and interactive than
 The game has some color and ascii headers to make the application more visually appealing. The primary target audience consists of users who would like to solve riddles in a more engaging format. Secondary audiences include users who are interested in basic terminal applications and games.
 
 #### R6 Features
+
+##### Aesthetics
+Ascii art was copied from an online generator and pasted as a string in the code. The lolize gem was used to color the Ascii headers for each section of the application. The colorize gem introduced solid color text. 
+
+#####  Menus
+The tty: prompt gem was used to build the menu and submenu to enable the user to easily select their option of choice.
+
 ##### Riddles Class
-A riddles class is used to initialize all 5 riddles with the same attributes:
+A riddles class is used as a blue print to initialize all 5 riddles with the same attributes:
 - the riddle name, 
 - actual riddle, 
-- first_tip,
-- second_tip, 
+- first tip,
+- second tip, 
 - answer 
 
-The user is asked to input 
 ##### Game
-###### Tries
-###### Retries
-###### Score
-##### Credits
-##### Error Handling
+A game consists of looping through all 5 riddles enabling the user to attempt to solve each riddle, one at a time.
+A variable `x` is assigned for the riddle number. Each time the riddle loop is completed, `x` is overriden to `x + 1` allowing the program to use the next riddle as it loops through all 5 riddles.
 
+The user starts a game by selecting `Play` from the main menu and then selecting a difficulty mode `Easy`, `Recommended` or `Hard` from the submenu. Each difficulty mode assigns a set number of tries (determined by the `t` variable) and retries (`r` variable) for the entire game.
+![Difficulty](./docs/difficulty.PNG)
+
+###### Tries Loop and Retries Loop
+The user can try the riddle a maximum of `t` times. If they solve the riddle, they break out of this tries loop and move on to the next riddle. 
+If not, they enter the retries loop and may retry a maximum of `r` times.  Each retry prints a new tip to help the user solve the riddle. If they solve the riddle or if they do not have any retries left, they break out of the loop and move on to the next riddle.
+![Game loops](./docs/game_loops.PNG)
+###### Score
+The user can select Score from the menu. This section shows:
+- the total number score (which is the total number of riddles solved), 
+- and for each riddle it shows
+a) total tries 
+b) total retries 
+b) whether the riddle was solved (yes or no).
+
+The total score is tracked by a `score` variable (initially set to zero) that is overridden as `score = score + 1` each time a riddle is solved. 
+
+Similarly tries count and retries count are two seperate variables that tally for each riddle. An empty tries count array and retries count array are set at the start of each riddle. They collect the total tries and retries for each riddle. Whether a riddle is solved or not, a `yes` or `no` will be pushed into a riddle solved array.
+
+Once the user finishes a riddle (by solving or running out of tries and retries), the tries count and the retries count are pushed to the tries count array and retries count array, respectively. Here is an example of the push when a riddle is solved:
+![Solved push](./docs/solved-push.PNG)
+
+If the user attempts to view the score stats before playing a game, the arrays are empty so the indexes in the array do not exist. When the score table tries to access indexes in the empty array to print to the stats table, a nil error is returned. To prevent this, the arrays are only accessed if they are not empty. If they are empty, the program prints a message telling the user to play a game to get a score and stats first. This avoids the error.
+
+![Score method](./docs/score_method.PNG)
+
+##### Credits
+A colorful page, accessed from the main menu, showing copyright and giving credit to the Ascii generator and riddles source.
+
+##### Set name in command line
+ARGV variables can be used to pass command line arguments to the entire ruby application when the application is executed. Here, a deafult user name is set as "Player One". The user can override the default name by entering their name of choice from the command line. In this example, the user wants the program to call them "Wonder Woman":
+![ARGV customise name from command line](./docs/wonderwoman.PNG)
+*[Note: error handling in below code:]*
+![ARGV Error in ruby](./docs/argv_error.PNG)
+
+When running or installing the application using `./run_app.sh` (see below "R10 How to Use and Install the Application"), the user will be prompted to `"Please enter your name: "`. If they type in their chosen name and hit enter, the application will use their chosen name throughout the program. If they leave it blank and just hit enter, the application will default to "Player One".
+![ARGV in .sh file](./docs/sh_file.PNG)
 #### R7 User Interaction
 The user runs the application to play the game. For instructions on the former, please see below at "R10 How to Use and Install the Application", which also includes information about customising the game to refer to you by your chosen name, rather than the default "Player One".
 
@@ -54,7 +94,7 @@ Selecting game, will lead to a submenu asking the user to select a difficulty mo
 
 ![Submenu with difficulty selection](./docs/submenu.PNG)
 
-In the following example, the user has chosen to play `Recommended` difficulty mode. The program confirms that they have 2 tries and two retries per riddle. The player has commited to the game and must now play to the end (this also assists the user in avoiding the tempation of leaving the game to go seek answers elsewhere). The game will progress through all 5 riddles regardless of how many, if any, riddles are solved. Gameflow is important to prevent a user from getting stuck on a riddle and quiting in frustration. The tips are also designed to keep the game moving and assist the user with new information if they are playing Easy or Recommended modes and having difficulty solving each riddle.
+In the following example, the user has chosen to play `Recommended` difficulty mode. The program confirms that they have 2 tries and two retries per riddle. The player has commited to the game and must now play to the end (this also assists the user in avoiding the temptation of leaving the game to go seek answers elsewhere). The game will progress through all 5 riddles regardless of how many, if any, riddles are solved. Gameflow is important to prevent a user from getting stuck on a riddle and quiting in frustration. The tips are also designed to keep the game moving and assist the user with new information if they are playing Easy or Recommended modes and having difficulty solving each riddle.
 
 The user may type their answer in upper or lower case and submit their answer by hitting Enter on their keyboard. The program will convert their answer to lowercase (aka `.downcase`) to match against the set answer. The player should receive their point for solving a riddle, regardless of any case sensitivity.
 
@@ -82,9 +122,14 @@ One of the references includes a link to more information about the riddles. If 
 
 #### R8 Control Flow Diagram
 ![Control Flow Diagram](./docs/riddle_flowchart.png)
+
 #### R9 Implementation Plan
 The implementation plan was prepeared in Trello and is accessible online at: https://trello.com/b/dsFHGMBp/terminal-sdp-riddle-game
 
+![Riddles SDP on Trello](./docs/Trello.PNG)
+![Riddle Feature](./docs/riddle_feature.PNG)
+![Game Feature](./docs/game_feature.PNG)
+![Score Feature](./docs/score_feature.PNG)
 #### R10 How to Use and Install the Application
 
 You may download the Riddles application and run it in Command Line.
@@ -118,6 +163,7 @@ For ease of reference, I provide the following instructions:
 - Now open the run_app.sh file by typing the folliwng, then hit Enter:
 `./run_app.sh`
 - The application will ask you to enter your name. Please do enter your name if you would like the program to call you by your name. If you do not want to enter your name, just hit Enter and the program will refer to you as default "Player One".
+- The `./run_app.sh` file will aslo instruct your computer to download bundler and all gems necessary to run the application. 
 
 **Thereafter**
 If you want to open the application again later:

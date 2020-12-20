@@ -71,23 +71,22 @@ def play
     puts "You have #{$r} retries per riddle. Retries come with tips so they are only available in EASY and RECOMMENDED modes.".cyan
     #set variables:
     $score = 0 #total score
-    x = 0 #number of riddle 0 - 9 
+    x = 0 #number of riddles index 0..4 (there are 5 riddle) starting at the first riddle at the 0 index.
     #set empty arrays:
     $try_counts_array = [] 
     $retry_counts_array = []
     $riddle_solved_array = [] 
    #LOOP PLAYING EACH RIDDLE
     while x <= 4 #number of riddles index 0..4
-        try_count = 0 #try_count for this riddle only
-        retry_count = 0 #
+        try_count = 0 
+        retry_count = 0 
         #TRY COUNT LOOP
         correct_answer = $riddles_array[x].answer
         loop do # DO LOOP WILL RUN AT LEAST ONCE.
             puts ""
             puts $riddles_array[x].riddle_name.magenta
             puts $riddles_array[x].actual_riddle
-            # correct_answer = $riddles_array[x].answer
-            user_guess = gets.chomp.downcase
+            user_guess = gets.chomp.downcase #user answer converted to lowercase to match with lowercase answer
             try_count += 1
             if user_guess == correct_answer 
                 sleep (1)
@@ -123,8 +122,8 @@ def play
                     $riddle_solved_array.push(riddle_solved)
                 end
                 #PUSH try_count and retry_count, for each riddle, so we can use that in score
-                $try_counts_array.push(try_count) #Number of attempts for this riddle
-                $retry_counts_array.push(retry_count) #umber of retries (with help) for this riddle
+                $try_counts_array.push(try_count) #number of attempts for this riddle
+                $retry_counts_array.push(retry_count) #number of retries (with help) for this riddle
             end
             break if try_count >= $t && retry_count <= $r
         end          
@@ -200,7 +199,8 @@ $user_name = "Player One" #Reference to Ernest Cline novel.
 $user_name = ARGV[0] if ARGV[0]  #if it exists and is not nil 
 #Note user will be asked for name if running program through run_app.sh - will default to Player One if nothing entered.
 ARGV.clear #Fixes an error thrown by gets in index.rb game methods when arguments are passed to ruby script: 
-#i.e. else opening ruby index.rb Name you will get: error index.rb:90:in `gets': No such file or directory @ rb_sysopen - Name (Errno::ENOENT)
+#i.e. else opening ruby index.rb Name you will get:
+# error index.rb:90:in `gets': No such file or directory @ rb_sysopen - Name (Errno::ENOENT)
 
 puts "Welcome to Riddles. Ready, #{$user_name}!"
 puts "Each riddle has a one word answer. Get ready to solve some riddles!".cyan

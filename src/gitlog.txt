@@ -1,3 +1,15 @@
+commit ec5a564be64cec23ae45b19980c684d915b99a64
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 23:51:04 2020 +1000
+
+    README and docs now tracked and committed
+
+commit 3dc8aa50e99ed06fba2e640540b40072ad711638
+Author: Ellezique <gizellevanzyl@gmail.com>
+Date:   Sat Dec 19 23:49:00 2020 +1000
+
+    README.md draft and docs folder with images for README
+
 commit 28933c3ffc59c1ea7373185404260323bd9d0bdd
 Author: Ellezique <gizellevanzyl@gmail.com>
 Date:   Sat Dec 19 13:14:39 2020 +1000
