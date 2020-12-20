@@ -52,7 +52,9 @@ The user starts a game by selecting `Play` from the main menu and then selecting
 ###### Tries Loop and Retries Loop
 The user can try the riddle a maximum of `t` times. If they solve the riddle, they break out of this tries loop and move on to the next riddle. 
 If not, they enter the retries loop and may retry a maximum of `r` times.  Each retry prints a new tip to help the user solve the riddle. If they solve the riddle or if they do not have any retries left, they break out of the loop and move on to the next riddle.
+
 ![Game loops](./docs/game_loops.PNG)
+
 ###### Score
 The user can select Score from the menu. This section shows:
 - the total number score (which is the total number of riddles solved), 
@@ -66,11 +68,15 @@ The total score is tracked by a `score` variable (initially set to zero) that is
 Similarly tries count and retries count are two seperate variables that tally for each riddle. An empty tries count array and retries count array are set at the start of each riddle. They collect the total tries and retries for each riddle. Whether a riddle is solved or not, a `yes` or `no` will be pushed into a riddle solved array.
 
 Once the user finishes a riddle (by solving or running out of tries and retries), the tries count and the retries count are pushed to the tries count array and retries count array, respectively. Here is an example of the push when a riddle is solved:
+
 ![Solved push](./docs/solved-push.PNG)
+
 
 If the user attempts to view the score stats before playing a game, the arrays are empty so the indexes in the array do not exist. When the score table tries to access indexes in the empty array to print to the stats table, a nil error is returned. To prevent this, the arrays are only accessed if they are not empty. If they are empty, the program prints a message telling the user to play a game to get a score and stats first. This avoids the error.
 
+
 ![Score method](./docs/score_method.PNG)
+
 
 ##### Credits
 A colorful page, accessed from the main menu, showing copyright and giving credit to the Ascii generator and riddles source.
@@ -82,17 +88,23 @@ ARGV variables can be used to pass command line arguments to the entire ruby app
 ![ARGV Error in ruby](./docs/argv_error.PNG)
 
 When running or installing the application using `./run_app.sh` (see below "R10 How to Use and Install the Application"), the user will be prompted to `"Please enter your name: "`. If they type in their chosen name and hit enter, the application will use their chosen name throughout the program. If they leave it blank and just hit enter, the application will default to "Player One".
+
 ![ARGV in .sh file](./docs/sh_file.PNG)
+
 #### R7 User Interaction
 The user runs the application to play the game. For instructions on the former, please see below at "R10 How to Use and Install the Application", which also includes information about customising the game to refer to you by your chosen name, rather than the default "Player One".
 
 The player receives a welcome message. The program confirms that each riddle has a one word answer. The user may then select an option from the main menu: `Play`, `Score`, `Credits`, `Exit`. `Exit` closes the application.
 
+
 ![Default welcome and Menu](./docs/welcome_menu.PNG)
+
 
 Selecting game, will lead to a submenu asking the user to select a difficulty mode (they can still go `Back` to main menu if they decide not to play). 
 
+
 ![Submenu with difficulty selection](./docs/submenu.PNG)
+
 
 In the following example, the user has chosen to play `Recommended` difficulty mode. The program confirms that they have 2 tries and two retries per riddle. The player has commited to the game and must now play to the end (this also assists the user in avoiding the temptation of leaving the game to go seek answers elsewhere). The game will progress through all 5 riddles regardless of how many, if any, riddles are solved. Gameflow is important to prevent a user from getting stuck on a riddle and quiting in frustration. The tips are also designed to keep the game moving and assist the user with new information if they are playing Easy or Recommended modes and having difficulty solving each riddle.
 
@@ -102,7 +114,9 @@ The image below indicates 4 guesses to the first riddle (two tries and two retri
 
 The application will allow a user to skip through if they keep hitting Enter on their keyboard.
 
+
 ![Example of gameplay](./docs/gameplay.PNG)
+
 
 The user can select `Score` from the main menu. If they go to `Score` before playing a game, there won't be a score to print. Instead of displaying an error, the score page will just tell the user to go play a game to get a score and stats.
 
@@ -112,24 +126,35 @@ The score page provides the total score along with the total number of tries and
 
 The user is, of course, free to play again and attempt to improve their score.
 
+
 ![Score](./docs/score.PNG)
+
 
 The user may select Credits from the main menu. Credits provides copyright information and references two sources used in game development. 
 
 One of the references includes a link to more information about the riddles. If a user was unable to solve the riddle and cannot bear not knowing the answer, the credit page points them towards the source of the riddles...
 
+
 ![Credits](./docs/credits.PNG)
 
+
 #### R8 Control Flow Diagram
+
 ![Control Flow Diagram](./docs/riddle_flowchart.png)
+
 
 #### R9 Implementation Plan
 The implementation plan was prepeared in Trello and is accessible online at: https://trello.com/b/dsFHGMBp/terminal-sdp-riddle-game
 
+
 ![Riddles SDP on Trello](./docs/Trello.PNG)
+
 ![Riddle Feature](./docs/riddle_feature.PNG)
+
 ![Game Feature](./docs/game_feature.PNG)
+
 ![Score Feature](./docs/score_feature.PNG)
+
 #### R10 How to Use and Install the Application
 
 You may download the Riddles application and run it in Command Line.
@@ -139,6 +164,7 @@ You may download the Riddles application and run it in Command Line.
 Open the following link: https://github.com/Ellezique/ruby-riddles-game
 
 Select the green "Code" button, which will then display a drop down menu. From the drop down menu, select "Download ZIP".
+
 ![Download zip file](./docs/github_download.png)
 
 **PC**: Once the zip folder has downloaded, right click on the zip folder and select "Extract All" from the dropdown menu. You may then choose where you would like to save the extracted folder on your PC, but keep all these files together because they contain everything from the repository. 
@@ -164,6 +190,7 @@ For ease of reference, I provide the following instructions:
 `./run_app.sh`
 - The application will ask you to enter your name. Please do enter your name if you would like the program to call you by your name. If you do not want to enter your name, just hit Enter and the program will refer to you as default "Player One".
 - The `./run_app.sh` file will aslo instruct your computer to download bundler and all gems necessary to run the application - you don't need to worry about these dependencies but for ease of reference (or to satisfy curiosity), the Gemfile lists these gems:
+
 ![Gemfile](./docs/bundler_gems.PNG)
 
 **Thereafter**
