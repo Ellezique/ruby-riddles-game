@@ -209,7 +209,11 @@ OR
 - Type same followed by your "Name" (or whatever name you would like to be referred to) and hit Enter to customise the application to run using your chosen name:
 `ruby index.rb "Name"`
 
+**Maintenance**
 
+[Update Ruby as at 2023](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-22-04)
+
+[Update Gemfile with the latest gems](https://rubygems.org)
 
 [^1]: Wei, Jerry. "A Quick Guide to Using Command Line (Terminal)". 11 July 2019. Towards Data Science. https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955
 [^2]: Hitesh, J. "How to Run .SH Files in Linux & Windows Systems". 31 October 2019. Web Server Talk. https://www.webservertalk.com/run-sh-files-in-linux-and-windows/
